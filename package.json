@@ -24,7 +24,8 @@
     "express-list-endpoints": "^6.0.0",
     "express-validator": "^7.0.1",
     "nodemon": "^3.0.1",
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "jest": "^29.7.0"
   },
   "name": "apirest_dispositivos_electronicos_expressjs",
   "description": "![Index app](./doc/assets/CRUD_Bucket_s3.drawio.png)",
@@ -38,7 +39,11 @@
     "format-prettier": "prettier --write \"{src,test}/**/*.{js,ts}\"",
     "check": "remark . --quiet --frail",
     "format-remark": "remark . --quiet --frail --output",
-    "format-md": "remark . --output"
+    "format-md": "remark . --output",
+    "test": "jest --verbose",
+    "test:watch": "jest --watch --verbose",
+    "test:cov": "jest --coverage --verbose",
+    "test:pagination-helpers": "jest --verbose ./src/test/unit-test/helpers/pagination/*"
   },
   "repository": {
     "type": "git",
@@ -59,8 +64,9 @@
   "plugins": [
     "remark-preset-lint-consistent",
     "remark-preset-lint-recommended",
-    "remark-lint",
     "remark-lint-table-cell-padding",
+    "remark-lint",
+    "remark-lint-list-item-indent",
     [
       "remark-lint-list-item-indent",
       "tab-size"
@@ -72,6 +78,10 @@
     [
       "remark-lint-strong-marker",
       "*"
+    ],
+    [
+      "remark-lint-heading-style",
+      "atx"
     ]
   ]
 }
